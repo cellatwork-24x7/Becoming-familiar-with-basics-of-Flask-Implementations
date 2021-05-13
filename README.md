@@ -1,1 +1,18 @@
 # Becoming-familiar-with-basics-of-Flask-Implementations
+Flask is a popular Python web framework, meaning it is a third-party Python library used for developing web applications.Flask has three main dependencies. The routing, debugging, and Web Server Gateway Interface (WSGI) subsystems come from Werkzeug; the template support is provided by Jinja2; and the command-line integration comes from Click. These dependencies are all authored by Armin Ronacher, the author of Flask.  
+Accessing databases, validating online forms, authenticating accounts, and other high-level activities are not supported natively in Flask. Extensions that connect with the main package include these and many other main features that most web apps need.  
+As a developer, you have complete control over which plugins fit well for your project, and you can also write your own if you want to. In comparison, in a broader context, most decisions have already been taken for you and are difficult, if not impossible, to alter.
+
+## Installation
+To work with Flask web framework, a prior python installation is a must. To download Python, follow this link (https://www.python.org/downloads/), select the button that says Download Python 3.x.x, and then run the installer as you normally would to install applications on your operating system. The default settings should be fine.  To confirm that Python installed successfully, first open the command line. In macOS, click the spotlight icon on the top right corner of your desktop (the magnifying glass) and type terminal. The terminal should be the first application that appears. On Windows, click the Start menu icon and type cmd in the search box, then press Enter  Once your command line is open, enter these commands:  
+   python --version  
+   pip --version  
+If the output for these commands includes a version number, Python is installed and available from the command line and you can proceed to the next step. Next, you’ll need to install Flask. At the command line, type  
+   pip install flask  
+This will install Flask using the pip package manager for Python. You should see some output ending in a notification that Flask has been installed successfully. As an alternative to the above installation instructions, you can install the Python 3 version of Anaconda, which can be downloaded here. Anaconda comes with Flask, so if you go this route you will not need to install Flask using the pip package manager.  
+
+## Initialization
+All Flask applications must create an application instance. The web server passes all requests it receives from clients to this object for handling, using a protocol called Web Server Gateway Interface (WSGI, pronounced “wiz-ghee”). The application instance is an object of class Flask, usually created as follows:  
+   from flask import Flask  
+   app = Flask(__name__)  
+The association between a URL and the function that handles it is called a *route*. The most convenient way to define a route in a Flask application is through the app.route decorator exposed by the application instance. Functions like index() that handle application URLs are called view functions. If the application is deployed on a server associated with the www.example.com domain name, then navigating to http://www.example.com/ in your browser would trigger index() to run on the server. The return value of this view function is the response the client receives. If the client is a web browser, this response is the document that is displayed to the user in the browser window. A response returned by a view function can be a simple string with HTML content, but it can also take more complex forms.
